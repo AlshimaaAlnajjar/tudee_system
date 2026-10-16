@@ -15,8 +15,6 @@ class FirestoreService {
     return doc['name'];
   }
 
-
-
   static Future addTask(String title) async {
     await tasks.add({
       'title': title,
@@ -25,12 +23,16 @@ class FirestoreService {
     });
   }
 
-  static Future editTitle(String id, String title) async {
-    await tasks.doc(id).update({'title': title});
-  }
+  // static Future editTitle(String id, String title) async {
+  //   await tasks.doc(id).update({'title': title});
+  // }
+  //
+  // static Future toggleDone(String id, bool done) async {
+  //   await tasks.doc(id).update({'done': !done});
+  // }
 
-  static Future toggleDone(String id, bool done) async {
-    await tasks.doc(id).update({'done': !done});
+  static Future updateTask(String id, Map<String, dynamic> data) async {
+    await tasks.doc(id).update(data);
   }
 
   static Future deleteTask(String id) async {

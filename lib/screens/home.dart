@@ -157,7 +157,7 @@ class Home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector(
-                  onTap: () => FirestoreService.toggleDone(task.id, isDone),
+                  onTap: () => FirestoreService.updateTask(task.id, {'done': !isDone}),
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                     decoration: BoxDecoration(

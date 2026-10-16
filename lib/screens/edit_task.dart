@@ -18,7 +18,7 @@ class EditTask extends StatelessWidget {
       initialText: title,
       lines: 2,
       onSave: (newTitle) async {
-        await FirestoreService.editTitle(id, newTitle);
+        await FirestoreService.updateTask(id, {'title': newTitle});
         Navigator.pop(context);
       },
     );
